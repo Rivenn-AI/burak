@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import router from "./router";
+import routerAdmin from "./routerAdmin";
 /** 1-ENTRANCE **/
 const app = express();
 app.use(express.static(path.join()));
@@ -12,6 +13,7 @@ app.set("view engine", "ejs");
 /** 3-SESSIONS **/
 
 /** 4-ROUTERS **/
-app.use("/", router);
+app.use("/admin", routerAdmin); // Traditional SSR--> Server site rendering
+app.use("/", router); //SPA: React
 
 export default app;
