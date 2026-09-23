@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { T } from "../libs/types/common";
-
+import MemberService from "../models/Member.servise";
 const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
