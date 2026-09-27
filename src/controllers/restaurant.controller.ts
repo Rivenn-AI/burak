@@ -4,6 +4,10 @@ import MemberService from "../models/Member.servise";
 const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
+    console.log("goHome");
+    // Logics
+    //Service modelgamurojat qilnadi
+    // ... errorni chop etadi bu loyhani standarti
     res.send(" home page");
   } catch (err) {
     console.log("Error, goHome", err);
