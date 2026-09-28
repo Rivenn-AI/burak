@@ -1,3 +1,14 @@
+//Mit task_O
+function addNumbers(str: any[]) {
+  let sum = 0;
+  str.forEach((value) => {
+    if (typeof value === "number") {
+      sum += value;
+    }
+  });
+  return sum;
+}
+console.log(addNumbers([20, "15", { age: 10 }, 4]));
 /**  PROJECT STANDARDS:
  - Logging standarts
  - Naming standarts
