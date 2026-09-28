@@ -7,6 +7,11 @@
    css => SNAKE                        button-style
  - error handiling  
 **/
+/**  
+ Traditional Api
+ Rest Api
+ GraphQl Api 
+ **/
 
 //Mit task_N
 // function palindrom(a: any) {
