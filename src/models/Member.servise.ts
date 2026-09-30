@@ -27,7 +27,7 @@ class MemberService {
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
   }
-  public async processLogin(input: LoginInput): Promise<Member> {
+  public async processLogin(input: LoginInput) {
     const member = await this.memberModel
       .findOne(
         { memberNick: input.memberNick },
@@ -40,20 +40,15 @@ class MemberService {
     }
     const isMatch = await bcrypt.compare(
       input.memberPassword,
-      member.memberPassword
+      member.memberPassword,
     );
-    
+
     //const isMatch = input.memberPassword === member.memberPassword;
-    
+
     if (!isMatch) {
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
-
-    const result = await this.memberModel.findById(member._id).exec();
-    if (!result) {
-      throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
-    }
-    return result;
+    return await this.memberModel.findById(member._id).exec();
   }
 }
 

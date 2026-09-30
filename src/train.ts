@@ -1,14 +1,19 @@
-//Mit task_O
-function addNumbers(str: any[]) {
-  let sum = 0;
-  str.forEach((value) => {
-    if (typeof value === "number") {
-      sum += value;
-    }
-  });
-  return sum;
+// Mit task_P
+function objecToArray(obj: any) {
+  return Object.entries(obj);
 }
-console.log(addNumbers([20, "15", { age: 10 }, 4]));
+console.log(objecToArray({ a: 10, b: 23 }));
+//Mit task_O
+// function addNumbers(str: any[]) {
+//   let sum = 0;
+//   str.forEach((value) => {
+//     if (typeof value === "number") {
+//       sum += value;
+//     }
+//   });
+//   return sum;
+// }
+// console.log(addNumbers([20, "15", { age: 10 }, 4]));
 /**  PROJECT STANDARDS:
  - Logging standarts
  - Naming standarts
