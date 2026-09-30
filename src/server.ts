@@ -16,5 +16,4 @@ mongoose
   })
   .catch((err) => console.log("Error occured", err));
 // console.log("PORT", process.env.PORT);
-
 // console.log("BIZNI LINK", process.env.MONGO_URL);

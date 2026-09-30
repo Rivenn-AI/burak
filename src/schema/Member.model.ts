@@ -1,7 +1,8 @@
 import mongoose, { Schema } from "mongoose";
 import { MemberStatus, MemberType } from "../libs/enums/member.enum";
+import { Member } from "../libs/types/member";
 // Schema first $ code first
-const memberSchema = new Schema(
+const memberSchema = new Schema<Member>(
   {
     memberType: {
       type: String,
@@ -52,4 +53,4 @@ const memberSchema = new Schema(
   },
   { timestamps: true }, //Updated at & created At
 );
-export default mongoose.model("Member", memberSchema);
+export default mongoose.model<Member>("Member", memberSchema);
