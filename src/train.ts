@@ -1,3 +1,22 @@
+/**  PROJECT STANDARDS:
+ - Logging standarts
+ - Naming standarts
+   function, method variables--- camel case goHome
+   class => pascal                     MemberService
+   folder => KEBAB
+   css => SNAKE                        button-style
+ - error handiling  
+**/
+/**  
+ Traditional Api
+ Rest Api
+ GraphQl Api 
+ **/
+
+/** 
+    Traditional FD => BSSR (Admin) => EJS
+    MOdern FD => SPA => REACT (Users) **/
+
 // Mit task_P
 function objecToArray(obj: any) {
   return Object.entries(obj);
@@ -14,20 +33,6 @@ console.log(objecToArray({ a: 10, b: 23 }));
 //   return sum;
 // }
 // console.log(addNumbers([20, "15", { age: 10 }, 4]));
-/**  PROJECT STANDARDS:
- - Logging standarts
- - Naming standarts
-   function, method variables--- camel case goHome
-   class => pascal                     MemberService
-   folder => KEBAB
-   css => SNAKE                        button-style
- - error handiling  
-**/
-/**  
- Traditional Api
- Rest Api
- GraphQl Api 
- **/
 
 //Mit task_N
 // function palindrom(a: any) {
