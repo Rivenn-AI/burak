@@ -12,7 +12,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
     // Logics
     //Service modelgamurojat qilnadi
     // ... errorni chop etadi bu loyhani standarti
-    res.send(" Home page");
+    res.render("home");
   } catch (err) {
     console.log("Error, goHome", err);
   }
@@ -20,6 +20,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
     res.send("Signup page");
+    res.render("signup");
   } catch (err) {
     console.log("Error, Signup", err);
   }
@@ -27,6 +28,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
     res.send("Log in page");
+    res.render("login");
   } catch (err) {
     console.log("Error, getLogin", err);
   }

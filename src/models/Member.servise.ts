@@ -26,6 +26,8 @@ class MemberService {
       throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
     }
   }
+
+  //Define
   public async login(input: LoginInput) {
     // todo Consider member status later
     const member = await this.memberModel
@@ -34,7 +36,7 @@ class MemberService {
         { memberNick: 1, memberPassword: 1 },
       )
       .exec();
-
+    console.log(member);
     if (!member) {
       throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
     }

@@ -3,6 +3,7 @@
 //Design patter: Midleware, Decotar
 import dotenv from "dotenv";
 dotenv.config();
+console.log("MONGO_URL:", process.env.MONGO_URL);
 import mongoose from "mongoose";
 mongoose.set("strictQuery", true);
 
@@ -14,6 +15,7 @@ mongoose
     const PORT = process.env.PORT ?? 3003;
     app.listen(PORT, function () {
       console.log(`The server working  succseded on port:${PORT}`);
+      console.log(`Admin project on hhtp://localhost:${PORT}/admin \n`);
     });
   })
   .catch((err) => console.log("Error occured", err));

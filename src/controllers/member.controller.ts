@@ -10,7 +10,7 @@ const memberController: T = {};
 memberController.signup = async (req: Request, res: Response) => {
   try {
     console.log("Sign up");
-
+    console.log(1);
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input);
     //TODO tokens
@@ -18,11 +18,13 @@ memberController.signup = async (req: Request, res: Response) => {
     res.json({ member: result });
   } catch (err) {
     console.log("Error, Signup", err);
+
+    //res.json({ errors: err });
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
   }
 };
-
+//Define
 memberController.login = async (req: Request, res: Response) => {
   try {
     console.log("Login");
