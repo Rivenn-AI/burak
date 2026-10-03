@@ -17,11 +17,20 @@
     Traditional FD => BSSR (Admin) => EJS
     MOdern FD => SPA => REACT (Users) **/
 
-// Mit task_P
-function objecToArray(obj: any) {
-  return Object.entries(obj);
+//Mit task_Q
+function hasProperty(object: object, property: string) {
+  if (property in object) {
+    return true;
+  } else {
+    return false;
+  }
 }
-console.log(objecToArray({ a: 10, b: 23 }));
+console.log(hasProperty({ name: "Audi", model: "M3" }, "year"));
+// Mit task_P
+// function objecToArray(obj: any) {
+//   return Object.entries(obj);
+// }
+// console.log(objecToArray({ a: 10, b: 23 }));
 //Mit task_O
 // function addNumbers(str: any[]) {
 //   let sum = 0;
