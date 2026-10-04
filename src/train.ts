@@ -15,7 +15,15 @@
 
 /** 
     Traditional FD => BSSR (Admin) => EJS
-    MOdern FD => SPA => REACT (Users) **/
+    MOdern FD => SPA => REACT (Users) 
+    
+    
+    // send | render | redirect | json
+    
+    
+    Coocies bu   yopshib oladi
+    self destroy
+    **/
 
 //Mit task_Q
 function hasProperty(object: object, property: string) {

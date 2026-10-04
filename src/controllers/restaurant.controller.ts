@@ -5,6 +5,7 @@ import { AdminRequest, Member, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 import { LoginInput } from "../libs/types/member";
 import { Message } from "../libs/Errors";
+import Errors from "../libs/Errors";
 const memberService = new MemberService();
 const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
@@ -13,6 +14,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
     res.render("home");
   } catch (err) {
     console.log("Error, goHome", err);
+    res.redirect("/admin");
   }
 };
 restaurantController.getSignup = (req: Request, res: Response) => {
@@ -20,6 +22,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
     res.render("signup");
   } catch (err) {
     console.log("Error, Signup", err);
+    res.redirect("/admin");
   }
 };
 restaurantController.getLogin = (req: Request, res: Response) => {
@@ -27,6 +30,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     res.render("login");
   } catch (err) {
     console.log("Error, getLogin", err);
+    res.redirect("/admin");
   }
 };
 
@@ -47,6 +51,11 @@ restaurantController.processSignup = async (
     });
   } catch (err) {
     console.log("Error, Signup", err);
+    const message =
+      err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+    res.send(
+      `<script> alert ("${message}"); window.location.replace('admin/signup')</script> `,
+    );
     res.send(err);
   }
 };
@@ -66,7 +75,23 @@ restaurantController.processLogin = async (
     });
   } catch (err) {
     console.log("Error, Login", err);
+    const message =
+      err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+    res.send(
+      `<script> alert ("${message}"); window.location.replace('admin/login')</script> `,
+    );
     res.send(err);
+  }
+};
+restaurantController.logout = async (req: AdminRequest, res: Response) => {
+  try {
+    console.log("process Log out");
+    req.session.destroy(function () {
+      res.redirect("/admin");
+    });
+  } catch (err) {
+    console.log("Error, Logout", err);
+    res.redirect("/admin");
   }
 };
 
