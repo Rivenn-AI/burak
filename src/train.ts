@@ -25,15 +25,25 @@
     self destroy
     **/
 
-//Mit task_Q
-function hasProperty(object: object, property: string) {
-  if (property in object) {
-    return true;
-  } else {
-    return false;
-  }
+//mit task-R
+function calculate(a: string) {
+  const numbers = a.split(/[+\-*\/]/);
+  numbers[0];
+  numbers[1];
+  const first = Number(numbers[0]);
+  const second = Number(numbers[1]);
+  return first + second;
 }
-console.log(hasProperty({ name: "Audi", model: "M3" }, "year"));
+console.log(calculate("3*5"));
+//Mit task_Q
+// function hasProperty(object: object, property: string) {
+//   if (property in object) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+// console.log(hasProperty({ name: "Audi", model: "M3" }, "year"));
 // Mit task_P
 // function objecToArray(obj: any) {
 //   return Object.entries(obj);
