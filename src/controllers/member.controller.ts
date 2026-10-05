@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import { Request, Response } from "express";
 import { T } from "../libs/types/common";
 import MemberService from "../models/Member.servise";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
