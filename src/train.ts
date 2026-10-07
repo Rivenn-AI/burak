@@ -20,21 +20,38 @@
     
     // send | render | redirect | json
     
-    
     Coocies bu   yopshib oladi
     self destroy
     **/
 
-//mit task-R
-function calculate(a: string) {
-  const numbers = a.split(/[+\-*\/]/);
-  numbers[0];
-  numbers[1];
-  const first = Number(numbers[0]);
-  const second = Number(numbers[1]);
-  return first + second;
+/** Validationlar
+ * Frontend validation
+ * Backend validation
+ * Database validation
+ */
+
+//Mit task_S
+
+function missingNumber(a: number[]) {
+  let result: number[] = [];
+  for (let i = 0; i <= a.length; i++) {
+    if (!a.includes(i)) {
+      result.push(i);
+    }
+  }
+  return result;
 }
-console.log(calculate("3*5"));
+console.log(missingNumber([1, 0, 5, 4, 3, 7]));
+//mit task-R
+// function calculate(a: string) {
+//   const numbers = a.split(/[+\-*\/]/);
+//   numbers[0];
+//   numbers[1];
+//   const first = Number(numbers[0]);
+//   const second = Number(numbers[1]);
+//   return first + second;
+// }
+// console.log(calculate("3*5"));
 //Mit task_Q
 // function hasProperty(object: object, property: string) {
 //   if (property in object) {
@@ -44,6 +61,7 @@ console.log(calculate("3*5"));
 //   }
 // }
 // console.log(hasProperty({ name: "Audi", model: "M3" }, "year"));
+
 // Mit task_P
 // function objecToArray(obj: any) {
 //   return Object.entries(obj);

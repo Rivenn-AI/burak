@@ -40,7 +40,7 @@ restaurantController.processSignup = async (
 ) => {
   try {
     console.log("processSign up");
-
+    console.log(1);
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.processSignup(newMember);
@@ -56,7 +56,6 @@ restaurantController.processSignup = async (
     res.send(
       `<script> alert ("${message}"); window.location.replace('admin/signup')</script> `,
     );
-    res.send(err);
   }
 };
 restaurantController.processLogin = async (
@@ -69,9 +68,9 @@ restaurantController.processLogin = async (
     const input: LoginInput = req.body,
       result = await memberService.processLogin(input);
 
-    req.session.member = result;
+    req.session.member = result; // Data base
     req.session.save(function () {
-      res.send(result);
+      res.send(result); //browserda | postman
     });
   } catch (err) {
     console.log("Error, Login", err);
