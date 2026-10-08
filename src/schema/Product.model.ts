@@ -5,8 +5,9 @@ import {
   ProductStatus,
   ProductVolume,
 } from "../libs/enums/product.enum";
+import type { Product } from "../libs/types/product";
 
-const productSchema = new Schema(
+const productSchema = new Schema<Product>(
   {
     productStatus: {
       type: String,
@@ -23,7 +24,7 @@ const productSchema = new Schema(
       required: true,
     },
     productPrice: {
-      type: String,
+      type: Number,
       required: true,
     },
     productLeftCount: {
@@ -35,14 +36,13 @@ const productSchema = new Schema(
       enum: ProductSize,
       default: ProductSize.NORMAL,
     },
-    productVolue: {
-      type: String,
+    productVolume: {
+      type: Number,
       enum: ProductVolume,
       default: ProductVolume.ONE,
     },
     productDesc: {
       type: String,
-      required: true,
     },
     productImages: {
       type: [String],

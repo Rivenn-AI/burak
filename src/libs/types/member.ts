@@ -1,11 +1,10 @@
-import { ObjectId } from "mongoose";
 import { MemberStatus, MemberType } from "../enums/member.enum";
-import { Types } from "mongoose";
+import mongoose, { Types } from "mongoose";
 import { Request } from "express";
 import { Session } from "express-session";
 
 export interface Member {
-  _id: Types.ObjectId;
+  _id: mongoose.Types.ObjectId;
   memberType: MemberType;
   memberStatus: MemberStatus;
   memberNick: string;
@@ -38,5 +37,7 @@ export interface LoginInput {
 export interface AdminRequest extends Request {
   member: Member;
   session: Session & { member: Member };
+  file: Express.Multer.File;
+  files: Express.Multer.File[];
 }
 //
