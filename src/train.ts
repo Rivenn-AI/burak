@@ -13,6 +13,8 @@
  GraphQl Api 
  **/
 
+import { resourceUsage } from "process";
+
 /** 
     Traditional FD => BSSR (Admin) => EJS
     MOdern FD => SPA => REACT (Users) 
@@ -30,18 +32,30 @@
  * Database validation
  */
 
-//Mit task_S
-
-function missingNumber(a: number[]) {
+//MIT task_T
+function toArrayToOne(a: number[], b: number[]) {
   let result: number[] = [];
-  for (let i = 0; i <= a.length; i++) {
-    if (!a.includes(i)) {
-      result.push(i);
-    }
+  for (let i = 0; i < a.length; i++) {
+    result.push(a[i]);
   }
+  for (let j = 0; j < b.length; j++) {
+    result.push(b[j]);
+  }
+  result.sort((i, j) => i - j);
   return result;
 }
-console.log(missingNumber([1, 0, 5, 4, 3, 7]));
+console.log(toArrayToOne([4, 6, 2, 8], [3, 1, 7, 5]));
+//Mit task_S
+// function missingNumber(a: number[]) {
+//   let result: number[] = [];
+//   for (let i = 0; i <= a.length; i++) {
+//     if (!a.includes(i)) {
+//       result.push(i);
+//     }
+//   }
+//   return result;
+// }
+// console.log(missingNumber([1, 0, 5, 4, 3, 7]));
 //mit task-R
 // function calculate(a: string) {
 //   const numbers = a.split(/[+\-*\/]/);
