@@ -24,6 +24,8 @@ app.use(morgan(MORGAN_FORMAT));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 /** 3-SESSIONS **/
+//1-req.+session.          Tamg'a qurish
+//2-req. +session +member. Tamg'ani uqish
 app.use(
   session({
     secret: String(process.env.SESSION_SECRET),
