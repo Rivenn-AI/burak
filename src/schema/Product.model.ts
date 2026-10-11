@@ -1,11 +1,12 @@
 import mongoose, { Schema } from "mongoose";
+
+import type { Product } from "../libs/types/product";
 import {
   ProductCollection,
   ProductSize,
   ProductStatus,
   ProductVolume,
 } from "../libs/enums/product.enum";
-import type { Product } from "../libs/types/product";
 
 const productSchema = new Schema<Product>(
   {
@@ -57,7 +58,7 @@ const productSchema = new Schema<Product>(
   { timestamps: true }, //Updated at & created At
 );
 productSchema.index(
-  { productName: 1, ProductSize: 1, ProductVolume: 1 },
+  { productName: 1, productSize: 1, productVolume: 1 },
   { unique: true },
 );
 
