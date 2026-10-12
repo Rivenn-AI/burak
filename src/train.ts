@@ -32,19 +32,33 @@ import { resourceUsage } from "process";
  * Database validation
  */
 
-//MIT task_T
-function toArrayToOne(a: number[], b: number[]) {
-  let result: number[] = [];
-  for (let i = 0; i < a.length; i++) {
-    result.push(a[i]);
-  }
-  for (let j = 0; j < b.length; j++) {
-    result.push(b[j]);
-  }
-  result.sort((i, j) => i - j);
-  return result;
+//MIT task-U
+export interface Number {
+  number: number;
 }
-console.log(toArrayToOne([4, 6, 2, 8], [3, 1, 7, 5]));
+function toqSon(a: number): number {
+  let count = 0;
+  for (let i = 0; i <= a; i++) {
+    if (i % 2 !== 0) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(toqSon(23));
+//MIT task_T
+// function toArrayToOne(a: number[], b: number[]) {
+//   let result: number[] = [];
+//   for (let i = 0; i < a.length; i++) {
+//     result.push(a[i]);
+//   }
+//   for (let j = 0; j < b.length; j++) {
+//     result.push(b[j]);
+//   }
+//   result.sort((i, j) => i - j);
+//   return result;
+// }
+// console.log(toArrayToOne([4, 6, 2, 8], [3, 1, 7, 5]));
 //Mit task_S
 // function missingNumber(a: number[]) {
 //   let result: number[] = [];
