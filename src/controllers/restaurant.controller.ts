@@ -57,7 +57,7 @@ restaurantController.processSignup = async (
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert ("${message}"); window.location.replace('admin/signup')</script> `,
+      `<script> alert ("${message}"); window.location.replace('/admin/signup')</script> `,
     );
   }
 };
@@ -80,7 +80,7 @@ restaurantController.processLogin = async (
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert ("${message}"); window.location.replace('admin/login')</script> `,
+      `<script> alert ("${message}"); window.location.replace('/admin/login')</script> `,
     );
   }
 };
@@ -99,7 +99,7 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
   try {
     console.log("getUsers");
     const result = await memberService.getUsers();
-
+    console.log(result);
     res.render("users", { users: result });
   } catch (err) {
     console.log("Error, getLogin", err);
@@ -110,7 +110,7 @@ restaurantController.updateChosenUser = async (req: Request, res: Response) => {
   try {
     console.log("updateChosenUsers");
     const result = await memberService.updateChosenUser(req.body);
-    res.send(HttpCode.OK).json({ data: result });
+    res.status(HttpCode.OK).json({ data: result });
   } catch (err) {
     console.log("Error, updateChosenUsers", err);
     if (err instanceof Errors) res.status(err.code).json(err);
