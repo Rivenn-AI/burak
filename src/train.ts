@@ -13,7 +13,7 @@
  GraphQl Api 
  **/
 
-import { resourceUsage } from "process";
+import { count } from "node:console";
 
 /** 
     Traditional FD => BSSR (Admin) => EJS
@@ -31,21 +31,34 @@ import { resourceUsage } from "process";
  * Backend validation
  * Database validation
  */
-
-//MIT task-U
-export interface Number {
-  number: number;
-}
-function toqSon(a: number): number {
-  let count = 0;
-  for (let i = 0; i <= a; i++) {
-    if (i % 2 !== 0) {
-      count++;
+//Mit task_V
+function harif(a: string) {
+  let result: { [key: string]: number } = {};
+  for (let i = 0; i < a.length; i++) {
+    let char = a[i];
+    if (result[char]) {
+      result[char]++;
+    } else {
+      result[char] = 1;
     }
   }
-  return count;
+  return result;
 }
-console.log(toqSon(23));
+console.log(harif("jaloliddin"));
+//MIT task-U
+// export interface Number {
+//   number: number;
+// }
+// function toqSon(a: number): number {
+//   let count = 0;
+//   for (let i = 0; i <= a; i++) {
+//     if (i % 2 !== 0) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+// console.log(toqSon(23));
 //MIT task_T
 // function toArrayToOne(a: number[], b: number[]) {
 //   let result: number[] = [];
