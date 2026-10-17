@@ -10,6 +10,7 @@ $(function () {
       const validImageType = ["image/jpg", "image/jpeg", "image/png"];
       if (!validImageType.includes(fileType)) {
         alert("Please insert only jpeg, jpg and png");
+        $(this).val("");
       } else {
         if (uploadFile) {
           console.log(URL.createObjectURL(uploadFile));
@@ -31,9 +32,13 @@ function validationSignupForm() {
   const confirmPassword = $(".confirm-password").val();
   if (
     memberNick === "" ||
+    " " ||
     memberPhone === "" ||
+    " " ||
     memberPassword === "" ||
-    confirmPassword === ""
+    " " ||
+    confirmPassword === "" ||
+    " "
   ) {
     alert("Please insert all required inputs");
     return false;
@@ -42,12 +47,12 @@ function validationSignupForm() {
     alert("Password differs, please check!");
     return false;
   }
-  const memberImage = $(".member-image").get(0).files[0];
+  const memberImage = $(".member-image").get(0).files[0]
+    ? $(".member-image").get(0).files[0].name
+    : null;
 
   if (!memberImage) {
     alert("Please insert Restaurant image!");
     return false;
   }
-
-  return true;
 }
