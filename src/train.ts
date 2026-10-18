@@ -31,20 +31,32 @@ import { count } from "node:console";
  * Backend validation
  * Database validation
  */
-//Mit task_V
-function harif(a: string) {
-  let result: { [key: string]: number } = {};
-  for (let i = 0; i < a.length; i++) {
-    let char = a[i];
-    if (result[char]) {
-      result[char]++;
-    } else {
-      result[char] = 1;
-    }
+
+// MIT task-W
+function arryToAll(a: number[], b: number) {
+  const result = [];
+  for (let i = 0; i < a.length; i += b) {
+    a.slice(i, i + b);
+    result.push(a.slice(i, i + b));
   }
   return result;
 }
-console.log(harif("jaloliddin"));
+console.log(arryToAll([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4));
+
+//Mit task_V
+// function harif(a: string) {
+//   let result: { [key: string]: number } = {};
+//   for (let i = 0; i < a.length; i++) {
+//     let char = a[i];
+//     if (result[char]) {
+//       result[char]++;
+//     } else {
+//       result[char] = 1;
+//     }
+//   }
+//   return result;
+// }
+// console.log(harif("jaloliddin"));
 //MIT task-U
 // export interface Number {
 //   number: number;

@@ -3,11 +3,13 @@ console.log("Products frontend javascript file");
 $(function () {
   $(".product-collection").on("change", () => {
     const selectedValue = $(".product-collection").val();
+
     if (selectedValue === "DRINK") {
       $("#product-volume").show();
+      $("#product-size").hide();
     } else {
       $("#product-volume").hide();
-      $("#product-collection").show();
+      $("#product-size").show();
     }
   });
   $("#process-btn").on("click", () => {
@@ -47,17 +49,11 @@ function validateForm() {
     productStatus = $(".product-status").val();
   if (
     productName === "" ||
-    " " ||
     productPrice === "" ||
-    " " ||
     productLeftCount === "" ||
-    " " ||
     productCollection === "" ||
-    " " ||
     productDesc === "" ||
-    " " ||
-    productStatus === "" ||
-    " "
+    productStatus === ""
   ) {
     alert("Please insert all details");
     return false;
