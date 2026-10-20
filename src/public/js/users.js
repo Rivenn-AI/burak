@@ -11,11 +11,11 @@ $(function () {
         const result = response.data;
         if (result.data) {
           $(".member-status").blur();
-        } else alert("User updated failed!");
+        } else alert("User update failed!");
       })
       .catch((err) => {
         console.log(err);
-        alert("User update failed");
+        alert("User update failed!");
       });
   });
 });

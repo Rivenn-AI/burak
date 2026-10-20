@@ -12,6 +12,7 @@ $(function () {
       $("#product-size").show();
     }
   });
+
   $("#process-btn").on("click", () => {
     $(".dish-container").slideToggle(500);
     $(".process-btn").css("display", "none");
@@ -20,6 +21,8 @@ $(function () {
     $(".dish-container").slideToggle(100);
     $(".process-btn").css("display", "flex");
   });
+
+  /////-----Produc status
   $(".new-product-status").on("change", async function (e) {
     const id = e.target.id;
     const productStatus = $(`#${id}.new-product-status`).val();
@@ -31,11 +34,11 @@ $(function () {
       if (result.data) {
         $(".new-product-status").blur();
       } else {
-        alert("Product update failed");
+        alert("Product update failed!");
       }
     } catch (err) {
       console.log(err);
-      alert("Product update failed");
+      alert("Product update failed!");
     }
   });
 });
