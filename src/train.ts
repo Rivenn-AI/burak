@@ -31,17 +31,43 @@ import { count } from "node:console";
  * Backend validation
  * Database validation
  */
+function countOccurrences(obj: any, str: any) {
+  let count = 0;
 
-// MIT task-W
-function arryToAll(a: number[], b: number) {
-  const result = [];
-  for (let i = 0; i < a.length; i += b) {
-    a.slice(i, i + b);
-    result.push(a.slice(i, i + b));
+  for (const key of Object.keys(obj)) {
+    if (key === str) {
+      count++;
+    }
+
+    if (typeof obj[key] === "object" && obj[key] !== null) {
+      count += countOccurrences(obj[key], str);
+    }
   }
-  return result;
+
+  return count;
 }
-console.log(arryToAll([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4));
+console.log(
+  countOccurrences(
+    {
+      model: "Bugatti",
+      steer: {
+        model: "HANKOOK",
+        size: 30,
+      },
+    },
+    "model",
+  ),
+);
+// MIT task-W
+// function arryToAll(a: number[], b: number) {
+//   const result = [];
+//   for (let i = 0; i < a.length; i += b) {
+//     a.slice(i, i + b);
+//     result.push(a.slice(i, i + b));
+//   }
+//   return result;
+// }
+// console.log(arryToAll([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4));
 
 //Mit task_V
 // function harif(a: string) {
