@@ -55,7 +55,13 @@ class MemberService {
     if (!isMatch) {
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
-    return await this.memberModel.findById(member._id).lean().exec();
+    const result = await this.memberModel.findById(member._id).lean().exec();
+
+    if (!result) {
+      throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+    }
+
+    return result;
   }
 
   /** SPA ----------------------------------->>>>>>>>>>>>>>>>>.Past bu Admin**/
