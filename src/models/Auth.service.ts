@@ -11,13 +11,14 @@ class AuthService {
   public async cretaeToken(payload: Member) {
     return new Promise((resolve, reject) => {
       const duration = `${AUTH_TIME}h`;
-      // const tokenPayload = {
-      //   _id: payload._id.toString(),
-      //   memberType: payload.memberType,
-      //   memberNick: payload.memberNick,
-      // };
+      const tokenPayload = {
+        _id: payload._id.toString(),
+        memberType: payload.memberType,
+        memberNick: payload.memberNick,
+      };
+
       jwt.sign(
-        payload,
+        tokenPayload,
         process.env.SECRET_TOKEN as string,
         { expiresIn: duration },
         (err, token) => {
@@ -28,13 +29,22 @@ class AuthService {
       );
     });
   }
-  public async checkAuth(token: string): Promise<Member> {
-    const result: Member = (await jwt.verify(
-      token,
-      this.secretToken,
-    )) as Member;
-    console.log(`======: ${result.memberNick}`);
-    return result;
+  public async checkAuth(token: string): Promise<Member | null> {
+    try {
+      console.log("TOKEN:", token);
+      console.log("TOKEN TYPE:", typeof token);
+
+      const result: Member = (await jwt.verify(
+        token,
+        this.secretToken,
+      )) as Member;
+
+      console.log(`======: ${result.memberNick}`);
+      return result;
+    } catch (err) {
+      console.log("JWT verification error:", err);
+      return null;
+    }
   }
 }
 

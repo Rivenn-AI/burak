@@ -22,10 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT));
-/** 2-VIEWS **/
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-/** 3-SESSIONS **/
+
+/** 2-SESSIONS **/
 //1-req.+session.          Tamg'a qurish
 //2-req. +session +member. Tamg'ani uqish
 app.use(
@@ -39,12 +37,15 @@ app.use(
     saveUninitialized: true,
   }),
 );
-
 app.use(function (req, res, next) {
   const sessionInstance = req.session as T;
   res.locals.member = sessionInstance.member;
   next();
 });
+/** 3-VIEWS **/
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
 /** 4-ROUTERS **/
 app.use("/admin", routerAdmin); // Traditional SSR--> Server site rendering
 app.use("/", router); //SPA: React

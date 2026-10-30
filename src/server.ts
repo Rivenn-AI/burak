@@ -1,6 +1,3 @@
-//Architectural pattern: MVC, DI, MVP
-// MVC---> Modul View Controller
-//Design patter: Midleware, Decotar
 import dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";
@@ -18,5 +15,3 @@ mongoose
     });
   })
   .catch((err) => console.log("Error occured", err));
-// console.log("PORT", process.env.PORT);
-// console.log("BIZNI LINK", process.env.MONGO_URL);
