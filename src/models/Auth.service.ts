@@ -14,7 +14,12 @@ class AuthService {
       const tokenPayload = {
         _id: payload._id.toString(),
         memberType: payload.memberType,
+        memberStatus: payload.memberStatus,
         memberNick: payload.memberNick,
+        memberPhone: payload.memberPhone,
+        memberPoints: payload.memberPoints,
+        createdAt: payload.createdAt,
+        updatedAt: payload.updatedAt,
       };
 
       jwt.sign(

@@ -10,6 +10,7 @@ import type {
   ProductUpdateInput,
 } from "../libs/types/product";
 import ProductModel from "../schema/Product.model";
+import { Types } from "mongoose";
 
 class ProductService {
   private readonly productModel;
@@ -45,7 +46,22 @@ class ProductService {
 
     return result;
   }
+  public async getProduct(
+    memberId: Types.ObjectId | null,
+    id: String,
+  ): Promise<Product> {
+    const productId = shapeIntoMongooseObjectId(id);
 
+    let result = await this.productModel
+      .findOne({
+        _id: productId,
+        productstatus: ProductStatus.PROCESS,
+      })
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    //TODO IF authenticated users=> first => view log creation
+    return result;
+  }
   /**SSR */
   public async getAllProducts(): Promise<Product[]> {
     const result = await this.productModel.find().exec();

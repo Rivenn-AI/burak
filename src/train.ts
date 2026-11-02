@@ -12,7 +12,11 @@
  Rest Api
  GraphQl Api 
  **/
-
+// const tokenPayload = {
+//   _id: payload._id.toString(),
+//   memberType: payload.memberType,
+//   memberNick: payload.memberNick,
+// };
 import { count } from "node:console";
 
 /** 
