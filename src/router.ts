@@ -1,8 +1,9 @@
 import express from "express";
 const router = express.Router();
 import memberController from "./controllers/member.controller";
+import productController from "./controllers/product.controller";
 
-router.get("/member/get-detail", memberController.getTopUsers);
+router.get("/member/restaurant", memberController.getRestaurant);
 router.post("/member/login", memberController.login);
 router.post("/member/signup", memberController.signup);
 router.post(
@@ -15,8 +16,8 @@ router.get(
   memberController.verfyAuth,
   memberController.getMemberDetail,
 );
-
+router.get("/member/get-users", memberController.getTopUsers);
 /**Product */
-
+router.get("/product/all", productController.getProducts);
 /**Orders */
 export default router;

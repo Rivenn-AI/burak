@@ -8,17 +8,17 @@ class AuthService {
   constructor() {
     this.secretToken = process.env.SECRET_TOKEN as string;
   }
-  public async cretaeToken(payload: Member) {
+  public async createToken(payload: Member) {
     return new Promise((resolve, reject) => {
       const duration = `${AUTH_TIME}h`;
-      // const tokenPayload = {
-      //   _id: payload._id.toString(),
-      //   memberType: payload.memberType,
-      //   memberNick: payload.memberNick,
-      // };
+      const tokenPayload = {
+        _id: payload._id.toString(),
+        memberType: payload.memberType,
+        memberNick: payload.memberNick,
+      };
 
       jwt.sign(
-        payload,
+        tokenPayload,
         process.env.SECRET_TOKEN as string,
         { expiresIn: duration },
         (err, token) => {
