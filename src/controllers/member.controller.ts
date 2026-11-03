@@ -6,6 +6,7 @@ import {
   Member,
   MemberInput,
   type ExtendedRequest,
+  type MemberUpdateInput,
 } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import AuthService from "../models/Auth.service";
@@ -107,6 +108,20 @@ memberController.getTopUsers = async (req: Request, res: Response) => {
     else res.status(Errors.standard.code).json(Errors.standard);
   }
 };
+memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
+  try {
+    console.log("updateMember");
+    const input: MemberUpdateInput = req.body;
+    if (req.file) input.memberImage = req.file.path;
+    const result = await memberService.updateMember(req.member, input);
+    res.status(HttpCode.OK).json({ result: result });
+  } catch (err) {
+    console.log("Error, verfyAuth", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
+
 memberController.verfyAuth = async (
   req: ExtendedRequest,
   res: Response,
