@@ -27,7 +27,6 @@ class ProductService {
   /**SPA */
 
   public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
-    console.log("inquery", inquiry);
     const match: T = { productStatus: ProductStatus.PROCESS };
     if (inquiry.productCollection)
       match.productCollection = inquiry.productCollection;
@@ -52,6 +51,7 @@ class ProductService {
 
     return result;
   }
+
   public async getProduct(
     memberId: Types.ObjectId | null,
     id: String,
@@ -61,7 +61,7 @@ class ProductService {
     let result = await this.productModel
       .findOne({
         _id: productId,
-        productstatus: ProductStatus.PROCESS,
+        productStatus: ProductStatus.PROCESS,
       })
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
