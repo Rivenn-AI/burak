@@ -39,7 +39,6 @@ class MemberService {
     }
   }
 
-  //Define
   public async login(input: LoginInput) {
     const member = await this.memberModel
       .findOne(

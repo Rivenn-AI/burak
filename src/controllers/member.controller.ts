@@ -114,6 +114,7 @@ memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
     const input: MemberUpdateInput = req.body;
     if (req.file) input.memberImage = req.file.path;
     const result = await memberService.updateMember(req.member, input);
+
     res.status(HttpCode.OK).json({ result: result });
   } catch (err) {
     console.log("Error, verfyAuth", err);

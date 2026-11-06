@@ -14,11 +14,12 @@ productController.getProducts = async (req: Request, res: Response) => {
   try {
     console.log("getProducts");
     const { page, limit, order, productCollection, search } = req.query;
+    //Object ichidan kerakli property'larni ajratib olyapmiz.
     const inquiry: ProductInquiry = {
       order: String(order),
       page: Number(page),
       limit: Number(limit),
-    };
+    }; //olingan propertylarni kerakli data type'ga o‘tkazib joylayapmiz.
     if (productCollection)
       inquiry.productCollection = productCollection as ProductCollection;
     if (search) inquiry.search = String(search);

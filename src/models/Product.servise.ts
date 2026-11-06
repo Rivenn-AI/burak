@@ -33,7 +33,7 @@ class ProductService {
     if (inquiry.search) {
       match.productName = { $regex: new RegExp(inquiry.search, "i") };
     }
-    const sort: T =
+    const sort: T = //Bu yerda ternary operator ishlatilgan:
       inquiry.order === "productPrice"
         ? { [inquiry.order]: 1 }
         : { [inquiry.order]: -1 };
@@ -43,7 +43,7 @@ class ProductService {
         //Pipelines
         { $match: match },
         { $sort: sort },
-        { $skip: (inquiry.page * 1 - 1) * inquiry.limit }, //0
+        { $skip: (inquiry.page * 1 - 1) * inquiry.limit }, //2
         { $limit: inquiry.limit * 1 }, //3 => 4,5,6
       ])
       .exec();
@@ -69,6 +69,7 @@ class ProductService {
     if (memberId) {
       //check existence
       const input: ViewInput = {
+        //Uchta property:
         memberId: memberId,
         viewRefId: productId,
         viewGroup: ViewGroup.PRODUCT,
@@ -79,7 +80,6 @@ class ProductService {
         // insert new view
         console.log("Pllaning new view");
         await this.viewService.inserMemberView(input);
-
         //Increase count
         result = await this.productModel
           .findByIdAndUpdate(
