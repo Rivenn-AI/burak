@@ -46,4 +46,9 @@ router.get(
   memberController.verfyAuth,
   orderController.getMyOrders,
 );
+router.post(
+  "/order/update",
+  memberController.verfyAuth,
+  orderController.updateOrder,
+);
 export default router;
