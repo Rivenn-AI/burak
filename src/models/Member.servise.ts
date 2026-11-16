@@ -111,7 +111,7 @@ class MemberService {
           memberType: MemberType.USER,
           memberStatus: MemberStatus.ACTIVE,
         },
-        { $inc: { memberPoints: point } },
+        { $inc: { memberPoints: point } }, //Increment operation
         { new: true },
       )
       .exec();

@@ -101,9 +101,9 @@ class OrderService {
     member: Member,
     input: OrderUpdateInput,
   ): Promise<Order> {
-    const memberId = shapeIntoMongooseObjectId(member._id),
-      orderId = shapeIntoMongooseObjectId(input.orderId),
-      orderStatus = input.orderStatus;
+    const memberId = shapeIntoMongooseObjectId(member._id);
+    const orderId = shapeIntoMongooseObjectId(input.orderId);
+    const orderStatus = input.orderStatus;
 
     const result = await this.orderModel
       .findOneAndUpdate(

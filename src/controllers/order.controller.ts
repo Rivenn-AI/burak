@@ -24,8 +24,9 @@ orderController.createOrder = async (req: ExtendedRequest, res: Response) => {
 orderController.getMyOrders = async (req: ExtendedRequest, res: Response) => {
   try {
     console.log("getMyOrders");
-    const { page, limit, orderStatus } = req.query;
+    const { page, limit, orderStatus } = req.query; //Destructuring
     const inquiry: OrderInquiry = {
+      //Initialization
       page: Number(page),
       limit: Number(limit),
       orderStatus: orderStatus as OrderStatus,
@@ -39,7 +40,6 @@ orderController.getMyOrders = async (req: ExtendedRequest, res: Response) => {
     else res.status(Errors.standard.code).json(Errors.standard);
   }
 };
-
 orderController.updateOrder = async (req: ExtendedRequest, res: Response) => {
   try {
     console.log("updateOrder");
