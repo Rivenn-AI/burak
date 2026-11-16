@@ -2,6 +2,7 @@ node_modules
 dist
 
 .env
+PROJECT_OVERVIEW.md
 
 uploades
 .DS_Store
